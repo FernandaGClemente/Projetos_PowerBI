@@ -1,0 +1,34 @@
+OBJETIVO PRINCIPAL:
+    - Criação do Dashboards do RH com 5 guias, sendo: Geral, Contratações, Desligamentos, Perfil da empresa e Perfil da equipe
+
+REQUISITOS:
+    - Guia GERAL - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia GERAL - Total de contratações (Cartão de linha múltipla)
+    - Guia GERAL - Total de demissões (Cartão de linha múltipla)
+    - Guia GERAL - Total de funcionário ativos (Cartão de linha múltipla)
+    - Guia GERAL - % Turnover (Cartão de linha múltipla)
+    - Guia GERAL – Salário total (Cartão de linha múltipla)
+    - Guia GERAL - Total de funcionários ativos por cidade (Funil)
+    - Guia GERAL - Total de contratações e desligamentos por anos e meses (Gráfico de colunas)
+    - Guia GERAL - % Turnover por cidade com desvio de meta (Scroller)
+    - Guia GERAL - Total de funcionário ativos por faixa de tempo de empresa em anos (Gráfico de colunas)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por estado, cidade e rua (Mapa) e Total de demissões por estado, cidade e rua (Mapa)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por área (gráfico de barra) e Total de demissões por área (gráfico de barra) 
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por nível (gráfico de barra) e Total de demissões por nível (gráfico de barra) 
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por faixa de tempo de empresa em anos (Gráfico de colunas) e Total de demissões por faixa de tempo de empresa em anos (Gráfico de colunas)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por faixa de idade em anos (gráfico de colunas) e Total de demissões por faixa de idade em anos (gráfico de colunas)
+    - Guia PERFIL DA EMPRESA - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia PERFIL DA EMPRESA - Total do salário por gênero (Rosca)
+    - Guia PERFIL DA EMPRESA - Total da média salário por gênero (Rosca)
+    - Guia PERFIL DA EMPRESA - Total de funcionários ativos por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total do salário por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total da média salário por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total de funcionários ativos por gênero (Rosca)
+    - Guia PERFIL DA EMPRESA - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia PERFIL DA EQUIPE - Foto do funcionário + Nome do Funcionário + Cargo + Área (Cartão de linha múltipla)
+    - Guia PERFIL DA EQUIPE - média da avaliação do funcionário (KPI)
+    - Guia PERFIL DA EQUIPE - Filtro Funcionário, Área e Nível hierárquico 
+    - Guia PERFIL DA EQUIPE - Competências por Total das notas individuais e Média geral (Radar)
+    - Guia PERFIL DA EQUIPE - Competências por Total das notas individuais (Gráfico de barra)
+    - Guia PERFIL DA EQUIPE - Nome, data de nascimento, contratação, estado civil, idade, salário, férias acumuladas e horas extras (Matriz)
