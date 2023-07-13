@@ -1,0 +1,49 @@
+OBJETIVO PRINCIPAL: 
+    - Criação do Dashboards de Estoque com 4 guias, sendo: Inventário, Análise de Estoque, Resultado e Análise por Produto
+
+REQUISITOS:
+- Guia INVENTÁRIO - Quantidade de estoque - Cartão de linha multipla
+- Guia INVENTÁRIO - Número de produtos - Cartão de linha multipla
+- Guia INVENTÁRIO - Itens abaixo do estoque - Cartão de linha multipla
+- Guia INVENTÁRIO - % Itens abaixo do estoque - Cartão de linha multipla
+- Guia INVENTÁRIO - Custo total com esque - Cartão de linha multipla
+- Guia INVENTÁRIO - Quantidade em estoque por estado e bairro - Grafico de colunas clusterizado
+- Guia INVENTÁRIO - Estoque por produto	- Grafico de barras clusterizado
+- Guia INVENTÁRIO - Categoria e produto por estoque atual, minimo e saldo do estoque - Matriz
+ 
+- Guia ANÁLISE DE ESTOQUE - Tabela com Produto, Receita total, Custo com estoque, Lucro total, Estoque atual, Estoque minimo e Saldo estoque - Matrtiz
+- Guia ANÁLISE DE ESTOQUE - Quantidade de estoque, Shopping e Produto - Arvore hierarquica
+
+- Guia RESULTADO - Receita Total - Cartão de linha multipla
+- Guia RESULTADO - Lucro Total - Cartão de linha multipla
+- Guia RESULTADO - % Margem - Cartão de linha multipla
+- Guia RESULTADO - Itens vendidos - Cartão de linha multipla
+- Guia RESULTADO - Receita total por mês - Grafico de área
+- Guia RESULTADO - Receita total por produto - Grafico de barras clusterizado
+- Guia RESULTADO - Receita total por ano - Grafico de rosca
+- Guia RESULTADO - Receita total por loja - Grafico de colunas clusterizado
+
+- Guia ANÁLISE POR PRODUTO - Filtro Produto
+- Guia ANÁLISE POR PRODUTO - Itens vendidos - Cartão de linha multipla
+- Guia ANÁLISE POR PRODUTO - Receita Total - Cartão de linha multipla
+- Guia ANÁLISE POR PRODUTO - Lucro Total - Cartão de linha multipla
+- Guia ANÁLISE POR PRODUTO - % Margem - Cartão de linha multipla
+- Guia ANÁLISE POR PRODUTO - Quantidade de venda e Receita Total por mês/ano - Grafico coluna agrupada com linha
+- Guia ANÁLISE POR PRODUTO - Itens vendidos por loja - Grafico de rosca
+- Guia ANÁLISE POR PRODUTO - Itens vendidos por ano - Grafico de colunas clusterizado
+- Guia ANÁLISE POR PRODUTO - Produto
+- Guia ANÁLISE POR PRODUTO - Imagem
+- Guia ANÁLISE POR PRODUTO - Categoria, Custo unitário, Preço unitario e Rank de vendas - Matriz
+
+
+
+
+
+
+
+
+
+
+
+
+
