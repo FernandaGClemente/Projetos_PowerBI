@@ -1,0 +1,47 @@
+comprador 
+Codigo Comprador	
+Nome Comprador
+Região Destino
+
+fornecedor 
+Codigo Fornecedor	
+Nome Fornecedor
+
+Compras
+Pedido 
+Data Pedido 	
+Data Saída 	
+Previsão Entrega 
+Data Entrega 
+Comprador 
+Produto 
+Quantidade 
+Desconto (%) 
+Fornecedor 
+inclusão da coluna condicional "Status de entrega" (if [Data Entrega] <= [Previsão Entrega] then "No Prazo" else "Atrasada")
+
+Produtos
+Codigo Produto	
+Nome Produto	
+Custo Unitário
+
+
+Filtro de Ano, Fornecedor e Comprador
+Custo mensal (Grafico de area) = Mês x Custo com Desconto com tooltip:
+	a) Sem titulo (cartão) = Medida Mês Selecionado = SELECTEDVALUE(dCalendario[Nome do Mês], "Janeiro")
+	b) Sem titulo (cartao) = Medida Custo com Desconto = SUMX(fCompras, fCompras[Quantidade] * (RELATED(dMateriaPrima[Custo Unitário])*(1-fCompras[Desconto (%)]/100)))
+	c) Custo por fornecedor (Grafico de barras empilhadas) = Nome do fornecedor x Custo com desconto
+Atraso entrega (cartão de linha multiplas) = Medida Atraso Médio Entrega (Dias) = AVERAGEX(fCompras, DATEDIFF(fCompras[Previsão Entrega] , fCompras[Data Entrega] , DAY))
+Custo total (cartão de linha multiplas) = Medida Custo com Desconto = SUMX(fCompras, fCompras[Quantidade] * (RELATED(dMateriaPrima[Custo Unitário])*(1-fCompras[Desconto (%)]/100)))
+Lead Compra (cartão de linha multiplas) = Medida Lead Time Compra = AVERAGEX(fCompras, DATEDIFF(fCompras[Data Pedido], fCompras[Data Entrega], DAY))
+Saving (Grafico de area) = Mês x Saving = [Custo Original]-[Custo com Desconto]
+Lead time de despacho por fornecedor (Grafico de barras empilhadas) = Nome do Fornecedor x Lead Time Despacho = AVERAGEX(fCompras, DATEDIFF(fCompras[Data Pedido] , fCompras[Data Saída] , DAY))
+Saving por fornecedor (Grafico de barras empilhadas) = Nome do Fornecedor x Saving
+Custo total por Fornecedor (Grafico Barra empilhadas) = Nome do Fornecedor x Custo com Desconto
+Produto mais comprado (cartão de linha multiplas) = Medida primeiro produto
+Custo total por região (Mapa coropletico) = Região destino x Custo com Desconto
+original x Negociado mensal (Grafico de coluna agrupadas com linhas) = Ano e Mês x Total original e Total pago
+
+
+Saving % = [Saving]/[Custo Original] = SUMX(fCompras,fCompras[Quantidade] * RELATED(dMateriaPrima[Custo Unitário]))
+

@@ -1,9 +1,9 @@
 # Projeto sobre análise de dados do Departamento de Recursos Humanos
 
-#### Este é um projeto de análise de dados que se concentra nos dados do RH de uma empresa fictícia de 2000 a 2018. Os dados são armazenados em uma planilha de Excel e importados para o Microsoft Power BI para serem analisados e extrair insights.
+#### Este é um projeto de análise de dados que se concentra nos dados do RH de uma empresa fictícia de 2000 a 2018. Os dados foram armazenados em uma planilha de Excel e importados para o Microsoft Power BI para serem analisados e extrair insights.
 
 ## Conjunto de dados:
-#### O conjunto de dados usado neste projeto consiste em uma tabela chamada “Base de Funcionário” contendo 25 atributos:
+#### O conjunto de dados usado neste projeto consiste em uma tabela chamada “Base de Funcionário” do arquivo excel "Dataset RH", contendo 25 atributos e está localizado na pasta _datasets :
 * ID RH: Contém o número da identificação exclusiva de cada funcionário 
 * Nome Completo: Contém os nomes e sobrenomes de cada funcionário
 * Estado Civil: Contém o estado civil de cada funcionário, tendo somente 2 opções: Casado (a) ou solteiro (a)
@@ -39,8 +39,8 @@
 ## Uso:
 #### Para executar este projeto, precisará ter o Microsoft Excel e o Microsoft Power BI instalados e em execução. 
 1. Clone este repositório em sua máquina local.
-2. Abra o Microsoft Power BI e depois o arquivo RH.pbix.
+2. Abra o Microsoft Power BI e depois o arquivo RH.pbix que está localizado na pasta _reports.
 3. Atualize o parâmetro referente ao caminho do arquivo em Excel (Dataset RH.xlsx) no Power Query
 
-## As etapas da análise e a conclusão foram demonstradas no arquivo em WORD "Etapas de análise dos dados do RH"
+### No que diz respeito às etapas da análise, o arquivo em Word intitulado "Etapas de análise dos dados do RH" fornece explicações e está localizado na pasta _references or docs.
 

@@ -1,0 +1,51 @@
+OBJETIVO PRINCIPAL: 
+    - Criação do Dashboards de Estoque com 3 guias/abas, sendo: Geral, Custo com Frotas, Resultado e Análise de Veículos, a partir do arquivo Base Logistica.
+
+O PROJETO TERÁ OS SEGUINTES TÓPICOS:
+1. Panorama geral
+2. Custo com Frotas
+3. Resultado
+4. Análise de Veículos
+
+VISUALIZAÇÕES E MEDIDAS QUE SERÃO CRIADAS: 
+    - Guia GERAL - Filtro Data do Pedido (Ano e mês) e Filtro Ano
+    - Guia GERAL - Quantidade de viagens (Cartão de linha multipla) = Medida Qtd Viagens = COUNTROWS(Frete) ou DISTINCTCOUNT(fFrete[Viagem])
+    - Guia GERAL - Quantidade de viagens por mês (Gráfico de colunas empilhadas) = Data do Pedido X Quantidade de viagens
+    - Guia GERAL - % no prazo (Indicador) = Medidas % No Prazo = [Viagens no Prazo]/[Qtd Viagens], Viagens no Prazo = CALCULATE(COUNTROWS(Frete), Frete[Status Entrega]="No Prazo") e Quantidade de viagens
+    - Guia GERAL - % atrasada (Indicador) = Medidas % Atrasado = [Viagens Atrasadas]/[Qtd Viagens] e Viagens Atrasadas = CALCULATE(COUNTROWS(Frete), Frete[Status Entrega]="Atrasado") e Quantidade de viagens
+    - Guia GERAL - Quantidade de viagens no Mês Atual x Mês Anterior (Gráfico de colunas clusterizado) = Data do Pedido x Quantidade de viagens e Viagens Mês Anterior = CALCULATE([Quantidade de Viagens], DATEADD(Calendario[Data], -1, MONTH))
+
+    - Guia CUSTO - Custo Combust. = SUM(fKmRodado[Gasto com Combustível])
+    - Guia CUSTO - Custo Fixo = SUM(fKmRodado[Custos Fixos])
+    - Guia CUSTO - Custo Manut. = SUM(fKmRodado[Manut.])
+    - Guia CUSTO - Custo por km = DIVIDE([Custo Total], [Km percorridos], 0)
+    - Guia CUSTO - Custo por Ton = DIVIDE([Custo Total], [Peso Total (ton)], 0)
+    - Guia CUSTO - Custo Total = [Custo Fixo] + [Custo Variável]
+    - Guia CUSTO - Custo Total por Km = DIVIDE([Custo Total], [Km percorridos], 0)
+    - Guia CUSTO - Custo Total por Veiculo = DIVIDE([Custo Total], [Veiculos Usados], 0)
+    - Guia CUSTO - Custo Variável = [Custo Combust.] + [Custo Manut.]
+
+    - Guia RESULTADO - Receita ou Valor total do frete (Cartão de linha multipla) = Medida Receita ou Valor total do frete = SUM(Frete[Valor do Frete Líquido])
+    - Guia RESULTADO - Valor Frete no Mês Atual x Mês Anterior (Gráfico de colunas clusterizado) = Data do Pedido x Valor total do frete e Frete Mês Anterior = CALCULATE([Valor Total Frete], DATEADD(Calendario[Data], -1, MONTH))
+    - Guia RESULTADO - Receita por km = DIVIDE([Valor Total Frete], [Km percorridos], 0)
+    - Guia RESULTADO - Receita por Ton = DIVIDE([Valor Total Frete], [Peso Total (ton)], 0)
+    - Guia RESULTADO - Lucro (Cartão de linha multipla) = Medidas Lucro = [Receita]-[Custo] e Custo = SUM(Frete[Custo Frete]) >> Custo Frete = [Combustível] + [Manutenção] + [Custos Fixos]
+    - Guia RESULTADO - Lucro Final = [Valor Total Frete] - [Custo Total]
+    - Guia RESULTADO - Lucro por km = [Receita por km] - [Custo por km]
+    - Guia RESULTADO - Lucro por Ton = [Receita por Ton] - [Custo por Ton]
+
+    - Guia ANÁLISE DE VEICULO - Veiculos Usados = DISTINCTCOUNT(fFrete[ID Veiculo])
+    - Guia ANÁLISE DE VEICULO - KM Rodados (Cartão de linha multipla) = Medida Km Rodados = SUM(Frete[Km]) ou Km percorridos = SUM(fKmRodado[Km percorridos])
+    - Guia ANÁLISE DE VEICULO - Peso Total (ton) (Cartão de linha multipla) = Medida Peso Total (ton) = DIVIDE(SUM(fFrete[Peso (KG)]), 1000, 0)
+    - Guia ANÁLISE DE VEICULO - Valor total da mercadoria (Cartão de linha multipla) = Medida Valor Total da Mercadoria = SUM(fFrete[Valor da Mercadoria])
+    - Guia ANÁLISE DE VEICULO - Entregas = COUNT(fFrete[Numero Documento Fiscal])
+    - Guia ANÁLISE DE VEICULO - Matriz com Marca e Tipos de veiculos (linhas), Receita e Quantidade de viagens (valores) 
+
+Tempo Entrega = [Data Entrega] - [Data Pedido]
+Status Entrega = if [Tempo Entrega] <= [Dias Combinados Entrega] then "No Prazo" else "Atrasado"
+
+
+
+
+
+

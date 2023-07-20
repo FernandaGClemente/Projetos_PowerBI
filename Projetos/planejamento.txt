@@ -1,0 +1,25 @@
+Projeto: 2634
+Código Projeto	
+Setor	
+Valor Orçado	
+Valor Negociado	
+Desconto Concedido	
+Data Ativação Lead	
+Data Início	
+Data Termino	
+Responsável	
+Status
+
+Total Desconto (Cartão de linha multiplas) = [Total Orçado]-[Total Pago]
+Total Leads (Cartão de linha multiplas) = CALCULATE(COUNTROWS(Projetos),Projetos[Data Início]=BLANK())
+Oportunidades (Cartão de linha multiplas) - Total Oportunidades = COUNTROWS(Projetos)
+Total Orçado (Cartão de linha multiplas) = CALCULATE(SUM(Projetos[Valor Orçado]), Projetos[Data Início]<>BLANK())
+Total Orçado Geral = SUM(Projetos[Valor Orçado])
+Total Pago (Cartão de linha multiplas) = CALCULATE(SUM(Projetos[Valor Negociado]), Projetos[Data Início]<>BLANK())
+Projetos fechados (Cartão de linha multiplas) - Total Projetos Fechados = CALCULATE(COUNTROWS(Projetos), Projetos[Data Início]<>BLANK())
+Total pago e total orçado por ano = Grafico colunas clusterixado = Ano x total pago e total orçado
+Total projetos fechados por ano e trimestre = Grafico de area = Ano e trimestre x total de projetos fechados
+Total oportunidade por status = Funil = Status x Total oportunidades x tooltips
+	Valor total = Cartão com total orçado geral, Melhor setor = Cartão com o primeiro setor e Total oportunidade por setor = Grafico de colunas empilhadas com setor x total oportunidades  
+
+Com play axis por setor (Fica mudando a informação por setor de 10000 ms) 

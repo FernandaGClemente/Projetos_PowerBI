@@ -1,0 +1,61 @@
+Cliente
+Id Cliente	
+Razao Social	
+Nome Fantasia	
+Tipo Pessoa	
+Municipio	
+UF
+
+Fornecedor
+Id Fornecedor	
+Razao Social	
+Nome Fantasia	
+Tipo Pessoa	
+Municipio	
+UF
+
+Banco
+Id Banco	
+Id Conta Bancária	
+Nome Banco	
+Município	
+UF	
+Imagem
+
+Pagamento
+Id Fornecedor	
+Id Conta Bancária	
+Data de Emissao	
+Data de Vencimento	
+Data da Movimentação	
+Valor da Movimentação	
+Forma de pagamento
+incluir coluna Prazo do Pagamento = Pagamentos[Data de Vencimento] - Pagamentos[Data de Emissao]
+incluir coluna Dias em Atraso = MAX(Pagamentos[Data de Vencimento] - Pagamentos[Data da Movimentação], 0)
+incluir coluna Dias Adiantado = MAX(Pagamentos[Data da Movimentação] - Pagamentos[Data de Vencimento], 0)
+
+Recebimento
+Id Cliente	
+Id Conta Bancária	
+Data de Emissao	
+Data de Vencimento	
+Data da Movimentação	
+Valor da Movimentação	
+Forma de pagamento
+incluir coluna Prazo do Recebimento = Recebimentos[Data de Vencimento] - Recebimentos[Data de Emissao]
+incluir coluna Dias Adiantado = MAX(Recebimentos[Data da Movimentação] - Recebimentos[Data de Vencimento], 0)
+incluir coluna Dias em Atraso = MAX(Recebimentos[Data de Vencimento] - Recebimentos[Data da Movimentação], 0)
+
+Guia GERAL
+Guia RECEBIMENTO
+Guia PAGAMENTO
+
+Receita (Cartão) = Medida Receita = CALCULATE(SUM('Movimentações'[Valor da Movimentação]),'Movimentações'[Tipo]="Recebimento")
+Despesas (Cartão) = Medida Despesas = -CALCULATE(SUM('Movimentações'[Valor da Movimentação]),'Movimentações'[Tipo]="Pagamento")
+Impostos (Cartão) = Medida Imposto = [Receita]*0.15
+Lucro (Cartão) = Medida Lucro = [Receita]-[Despesas]-'Movimentações'[Imposto] ou SUM(Movimentacoes[Valor da Movimentação])
+Margem de lucro (Grafico de rosca) = Medidas Margem = [Lucro]/[Receita] e Margem Auxiliar = 1-'Movimentações'[Margem]
+O número de transações foi de #, sendo # feitas via PIX, o que representa # das movimentações (Enlighten Data Story) = Medidas Transações = COUNTROWS('Movimentações'), Transações PIX = CALCULATE(COUNTROWS('Movimentações'),'Movimentações'[Forma Pagamento]="PIX") e % PIX = 'Movimentações'[Transações PIX]/[Transações]
+Lucro mensal (grafico de cascata) = Mes x Lucro
+Sem texto (Image Grid) = Imagem
+Scroll = Municipio x Margem x Desvio Margem = 'Movimentações'[Margem]-0.3

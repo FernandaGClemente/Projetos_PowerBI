@@ -1,0 +1,19 @@
+Núm. Movimentação	
+Data	
+Movimentação	
+Classificação	
+Documento	
+Centro de Custos	
+Local	
+Valor	
+Acumulado
+
+Filtro por periodo e centro de custo
+Entradas (Cartão de linhas multiplas) = Medida Entradas = CALCULATE(SUM('Movimentações'[Valor]), 'Movimentações'[Movimentação]="Entradas")
+Saidas (Cartão de linhas multiplas) = Medida Saídas = -CALCULATE(SUM('Movimentações'[Valor]), 'Movimentações'[Movimentação]="Saídas")
+Saldo (Cartão de linhas multiplas) = Medida Saldo = SUM('Movimentações'[Valor])
+Saldo Final (Cartão de linhas multiplas) = Saldo Final Período = LOOKUPVALUE('Movimentações'[Acumulado],'Movimentações'[Núm. Movimentação], MAX('Movimentações'[Núm. Movimentação]))
+Saldo Inicial (Cartão de linhas multiplas) = Medida Saldo Inicial Período = LOOKUPVALUE('Movimentações'[Acumulado],'Movimentações'[Núm. Movimentação], MIN('Movimentações'[Núm. Movimentação]))
+Despesa por tipo (Grafico de coluna empilhada) = Classificação x Saida
+Margem de lucro (Indicador) = Medida Margem de Lucro = [Saldo]/[Entradas]
+Saldo Mensal (Grafico de cascata) = Nome do mês x Saldo

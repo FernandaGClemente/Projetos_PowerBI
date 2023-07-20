@@ -1,0 +1,43 @@
+OBJETIVO PRINCIPAL:
+    - Criação do Dashboard do RH com 5 guias/abas, sendo: Geral, Contratações, Desligamentos, Perfil da Empresa e Perfil da Equipe a partir do arquivo Dataset RH.
+
+O PROJETO TERÁ OS SEGUINTES TÓPICOS:
+1. Informações gerais sobre os dados fornecidos
+2. Identificação do perfil dos funcionários que são admitidos pela empresa
+3. Identificação do perfil dos funcionários que são demitidos pela empresa
+4. Identificação do perfil dos funcionários ativos na empresa
+5. Identificação do perfil das equipes, como perfil individual e avaliações gerais e individuais por competências  
+
+VISUALIZAÇÕES E MEDIDAS QUE SERÃO CRIADAS: 
+    - Guia GERAL - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia GERAL - Total de contratações (Cartão de linha múltipla)
+    - Guia GERAL - Total de demissões (Cartão de linha múltipla)
+    - Guia GERAL - Total de funcionário ativos (Cartão de linha múltipla)
+    - Guia GERAL - % Turnover (Cartão de linha múltipla)
+    - Guia GERAL – Salário total (Cartão de linha múltipla)
+    - Guia GERAL - Total de funcionários ativos por cidade (Gráfico de Funil)
+    - Guia GERAL - Total de contratações e desligamentos por anos e meses (Gráfico de Coluna)
+    - Guia GERAL - % Turnover por cidade com desvio de meta (Scroller)
+    - Guia GERAL - Total de funcionário ativos por faixa de tempo de empresa em anos (Gráfico de Coluna)
+
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por estado, cidade e rua (Gráfico de Mapa) e Total de demissões por estado, cidade e rua ((Gráfico de Mapa)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por área (Gráfico de Barra) e Total de demissões por área (Gráfico de Barra)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por nível (Gráfico de Barra) e Total de demissões por nível (Gráfico de Barra) 
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por faixa de tempo de empresa em anos (Gráfico de Coluna) e Total de demissões por faixa de tempo de empresa em anos (Gráfico de Coluna)
+    - Guia CONTRATAÇÕES E DESLIGAMENTO - Total de contratações por faixa de idade em anos (Gráfico de Coluna) e Total de demissões por faixa de idade em anos (Gráfico de coluna)
+
+    - Guia PERFIL DA EMPRESA - Filtro Cidade, Ano, Área e Nível Hierárquico
+    - Guia PERFIL DA EMPRESA - Total do salário por gênero (Gráfico de Rosca)
+    - Guia PERFIL DA EMPRESA - Total da média salário por gênero (Gráfico de Rosca)
+    - Guia PERFIL DA EMPRESA - Total de funcionários ativos por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total do salário por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total da média salário por nível e área (Gráfico de Barra) com gênero
+    - Guia PERFIL DA EMPRESA - Total de funcionários ativos por gênero (Gráfico de Rosca)
+    
+    - Guia PERFIL DA EQUIPE - Filtro Funcionário, Área e Nível hierárquico 
+    - Guia PERFIL DA EQUIPE - Foto do funcionário + Nome do Funcionário + Cargo + Área (Cartão de linha múltipla)
+    - Guia PERFIL DA EQUIPE - média da avaliação do funcionário (Cartão de KPI)
+    - Guia PERFIL DA EQUIPE - Competências por Total das notas individuais e Média geral (Gráfico de Radar)
+    - Guia PERFIL DA EQUIPE - Competências por Total das notas individuais (Gráfico de Barra)
+    - Guia PERFIL DA EQUIPE - Nome, data de nascimento, contratação, estado civil, idade, salário, férias acumuladas e horas extras (Matriz)

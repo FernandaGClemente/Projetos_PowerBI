@@ -1,0 +1,115 @@
+
+Guia Relatorio de Vendas:
+	Faturamento total = SUM(Vendas[Faturamento]) - Cartão de linha multipla
+	Ticket Medio = AVERAGE(Vendas[Faturamento]) - Cartão de linha multipla
+	Total Vendas = SUM(Vendas[Qtd Vendida]) - Cartão de linha multipla
+	Clientes Atendidos = DISTINCTCOUNT(Vendas[Codigo Cliente]) - Cartão de linha multipla
+	Marca X Faturamento total (Gráfico de Barras empilhadas)
+	Imagem
+
+Guia Detalhamento dos produtos: 
+	Faturamento total x Marca, Categoria e Produto - Arvore hierarquica
+
+Localidade: 518
+Id Localidade	
+Continente
+Cidade	
+Estado	
+País
+
+Loja: 4
+Id Loja	
+Tipo Loja	
+Nome Loja
+
+Subcategoria: 45
+Id Subcategoria	
+Categoria	
+Subcategoria	
+Imagem (Tabela individual com a URL e Id)
+Adicionado ID imagem
+
+Produto: 2518
+Id Produto	
+Nome Produto	
+Id Subcategoria	
+Fabricante	
+Marca	
+Cor	
+Custo Unit.	
+Preço Unit.
+
+Vendedor: 5
+Id Vendedor
+Nome Vendedor
+CPF Vendedor
+Imagem Vendedor
+
+Cliente: 18485
+Id Cliente	
+Id Localidade	
+Nome Completo	
+Data de Nacimento	
+Estado Civil	
+Sexo	
+Renda Anual	
+Qtd. Filhos	
+Ocupação
+Inclusão de idade = ROUNDDOWN(YEARFRAC(dCliente[Data de Nacimento], TODAY()),0)
+Inclusão de Faixa de Idade = 
+SWITCH(
+    TRUE(),
+    dCliente[Idade] <= 20, "Até 20 anos",
+    dCliente[Idade] <= 30, "21-30 anos",
+    dCliente[Idade] <= 40, "31-40 anos",
+    dCliente[Idade] <= 50, "41-50 anos",
+    dCliente[Idade] <= 60, "51-60 anos",
+    "Acima de 60 anos")
+
+2017 - 371103 > 2018 - 379452 > 2019 - 395409 (Unica tabela)
+Data Venda	
+Id Loja	
+Id Produto	
+Id Cliente	
+Id Vendedor
+Nº Ordem Serviço	
+Qtd. Vendida	
+Qtd. Devolvida
+
+Inclusão da Tabela Aumento de Preço Unitário
+Aumento Preço Unit. = GENERATESERIES(0, 0.5, 0.01)
+Aumento Preço Unit. Valor = SELECTEDVALUE('Aumento Preço Unit.'[Aumento Preço Unit.], 0)
+
+Inclusão da Tabela de Medida de Tempo
+Custo Total Acumulado = CALCULATE([Custo Total],DATESYTD(dCalendario[Data]))
+Lucro Total LY = CALCULATE([Lucro Total], DATEADD(dCalendario[Data], -1, YEAR))
+Qtd. Clientes LY = CALCULATE([Qtd. Clientes], DATEADD(dCalendario[Data],-1, YEAR) + 0
+Qtd. Devolvida LY = CALCULATE([Qtd. Devolvida],DATEADD(dCalendario[Data],-1,YEAR)) + 0
+Qtd. Vendida LY = CALCULATE([Qtd. Vendas],DATEADD(dCalendario[Data],-1, YEAR)) + 0
+Receita Total Acumulada = CALCULATE([Receita Total],DATESYTD(dCalendario[Data]))
+Receita Total LY = CALCULATE([Receita Total], DATEADD(dCalendario[Data], -1, YEAR)) + 0
+
+Inclusão da Tabela de Medidas Gerais
+% Devoluções = DIVIDE([Qtd. Devolvida], [Qtd. Vendas])
+% Margem Lucro = DIVIDE([Lucro Total],[Receita Total])
+% Margem Lucro Médio = DIVIDE([Lucro Médio], [Receita Média])
+% YoY Clientes = DIVIDE([Qtd. Clientes] - [Qtd. Clientes LY], [Qtd. Clientes LY])
+% YoY Devolvida = DIVIDE([Qtd. Devolvida] - [Qtd. Devolvida LY], [Qtd. Devolvida LY])
+% YoY Lucro = DIVIDE([Lucro Total] - [Lucro Total LY], [Lucro Total LY])
+% YoY Receita = DIVIDE([Receita Total] - [Receita Total LY], [Receita Total LY])
+% YoY Vendas = DIVIDE([Qtd. Vendas] - [Qtd. Vendida LY], [Qtd. Vendida LY])
+Aumento % Lucro = + DIVIDE([Lucro Extra], [Lucro Total])
+aux % Margem = 1 - [% Margem Lucro Médio]
+Custo Total = SUMX(fVendas, fVendas[Qtd. Vendida] * RELATED(dProduto[Custo Unit.]))
+Custo Total Neg = - [Custo Total]
+Lucro Extra = [Nova Receita] - [Receita Total]
+Lucro Médio = AVERAGEX( fVendas, [Lucro Total])
+Lucro Total = [Receita Total] - [Custo Total]
+Nova Receita = SUMX( fVendas, fVendas[Qtd. Vendida] * RELATED(dProduto[Preço Unit.]) * (1 + [Aumento Preço Unit. Valor]))
+Qtd. Clientes = DISTINCTCOUNT(fVendas[Id Cliente])
+Qtd. Devolvida = SUM(fVendas[Qtd. Devolvida])
+Qtd. Vendas = SUM(fVendas[Qtd. Vendida])
+Receita Extra = [Nova Receita] - [Receita Total]
+Receita Média = AVERAGEX(fVendas, fVendas[Qtd. Vendida] * RELATED(dProduto[Preço Unit.]))
+Receita Total = SUMX( fVendas, fVendas[Qtd. Vendida] * RELATED(dProduto[Preço Unit.]))
+Texto = SELECTEDVALUE(dSubcategoria[Categoria], "Todas")

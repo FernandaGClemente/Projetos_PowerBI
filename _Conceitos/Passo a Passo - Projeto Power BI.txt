@@ -1,0 +1,34 @@
+Analisar as Bases de Dados que serão importadas no Power BI
+
+Fazer um plano de fundo no PPT e importar no Power BI
+
+Desativar a criação automática de relacionamento (Arquivo > Opções e Configurações > Opções > Arquivo Atual > Carregamentos de Dados > Desativar opções ‘Detectar automaticamente novos relacionamentos depois que os dados são carregados” > OK)
+
+No Power BI - Importação do arquivo 
+	Obter dados
+	Escolher uma fonte de dados
+	Tranformar dados
+
+No Power Query - Tratamento dos dados
+	Renomear o arquivo
+	Criar um parâmetro para localizar o caminho
+	Classificar as colunas com os tipos de dados corretos
+	Mesclar consultas (Exemplo: Categoria, SubCategoria e Produto)
+	Limpar colunas e linhas zeradas (valores nulos)
+	Colocar a 1º linha como cabeçalho
+	Excluir a coluna Número de Venda, para diminuir o tamanho do arquivo, pois é uma coluna distinta. 
+	Adicionar colunas apartir de outras colunas (Por exemplo: Coluna referente a Datas e Colunas Condicionais)
+	Alterar a configuração das atualização de consultas que não são modificadas constantemente
+	Alterar o nome da Fonte de dados
+	Desabilitar as Tabelas que não serão utilizadas no Power BI
+	Renomear as Etapas aplicadas
+	Evite criar Etapas desnecessárias, use a barra de formula para ajudar. 
+
+No Power BI - Modelagem 
+	Fazer os relacionamentos entre as Tabelas Fato e Dimensão 
+	Tabela Fato = só deve conter: Datas (datas do registro), Números (qtd vendida, etc), IDs pra relacionar com as tabelas Dimensão
+	Modo 1 = Tabelas Fatos ficam em baixo e Tabelas Características ficam em cima
+	Modo 2 = Tabela Fato fica no centro e as tabelas Características ficam em volta - Modelo Esquema Estrela (Star Schema)
+
+No Power BI - 
+	Criar colunas calculadas e medidas necessárias. Criar uma tabela para colocar só as medidas e uma tabela de calendário, caso não tenha. 

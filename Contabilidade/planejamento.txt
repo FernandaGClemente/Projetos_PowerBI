@@ -1,0 +1,46 @@
+Plano de contas
+Conta	
+Descrição da Conta	
+Nível 1	
+Nível 2
+
+Formato DRE 
+Ordem	
+Grupo	
+Subtotal?
+
+Realizado
+Mês/Ano	
+Conta	
+Valor Realizado
+
+Orçado
+Mês/Ano	
+Conta	
+Valor Orçado
+
+DRE 
+Segmentação de dados = Nome do Mês
+Orçado (Cartão) = Medida Orçado = SUM(fOrcado[Valor Orçado])
+Total Realizado (Cartão) = Medida Realizado = SUM(fRealizado[Valor Realizado])
+Desvio Reral x Orçado (KPI) = Medidas Desvio = [Realizado Correto] - [Orçado Correto], Inicio do Ano e Meta = 0
+Desvio % Real x Orçado (KPI) = Medidas Desvio % = DIVIDE([Desvio], ABS([Orçado Correto])), Inicio do Ano e Meta = 0
+Matriz = 
+	Linhas = Grupo x Nivel 2 x Descrição da conta
+	Coluna = Nome do mês
+	Valores = 
+		Realizado Correto = 	
+			VAR varSubtotal = SELECTEDVALUE(dFormatoDRE[Subtotal?])	
+			VAR varEstaNoEscopoNivel2 = ISINSCOPE(dPlanoContas[Nível 2])
+			RETURN SWITCH(TRUE(), varSubtotal = 0, [Realizado], varSubtotal = 1 && NOT(varEstaNoEscopoNivel2), [Realizado Subtotais], BLANK())
+		Realizado Subtotais = CALCULATE([Realizado], FILTER(ALL(dFormatoDRE),dFormatoDRE[Ordem] <= MAX(dFormatoDRE[Ordem])))	
+		Orçado Correto = 
+			VAR varSubtotal = SELECTEDVALUE(dFormatoDRE[Subtotal?])
+			VAR varEstaNoEscopoNivel2 = ISINSCOPE(dPlanoContas[Nível 2])
+			RETURN SWITCH(TRUE(), varSubtotal = 0, [Orçado], varSubtotal = 1 && NOT(varEstaNoEscopoNivel2), [Orçado Subtotais], BLANK())
+		Orçado Subtotais = CALCULATE([Orçado], FILTER(ALL(dFormatoDRE), dFormatoDRE[Ordem] <= MAX(dFormatoDRE[Ordem])))
+		Desvio % = DIVIDE([Desvio], ABS([Orçado Correto]))
+
+
+
+

@@ -1,0 +1,77 @@
+	Filtro de ano, mes e produto
+	Menu com as guias
+	Menu de ajuda
+	Total Horas (Cartão de linha multipla) = SUM('BaseProdução'[Total Horas])
+	Horas Paradas (Cartão de linha multipla) = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência]<>BLANK())
+	Horas Produtivas (Cartão de linha multipla) = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência]=BLANK())
+	Quant. Produzida (Cartão de linha multipla) = SUM('BaseProdução'[Qtd Produzida]) 
+	Quant. Rejeitada (Cartão de linha multipla) = SUM('BaseProdução'[Qtd Rejeitada])
+	Qtd Teorica (Cartão de linha multipla) = SUMX(FILTER('BaseProdução', 'BaseProdução'[Ocorrencia] = BLANK()),RELATED(CadastroProdutos[Peças Hora]) * 'BaseProdução'[Total Horas]) ou 
+	Qtd Teorica = SUM('BaseProdução'[Pecas Teoricas])
+
+	Disponibilidade = ([Horas Produtivas])/([Horas Produtivas] + [Horas Paradas]) ou DIVIDE([Horas Produtivas], [Horas Produtivas] + [Horas Paradas], BLANK())
+	Qualidade = ([Quant. Produzida])/([Quant. Produzida] + [Quant. Rejeitada])
+	OEE = [Disponibilidade] * [Produtividade] * [Qualidade]
+	Produtividade = DIVIDE([Qtd Produzida], [Qtd Teorica])
+
+Guia Global
+Gráfico de area = Mês x OEE com tooltip: Grafico PayPal KPI Donut Chart ou indicador para OEE, Disponibilidade, Produtividade, Qualidade 
+Grafico PayPal KPI Donut Chart ou indicador para OEE, Disponibilidade, Produtividade, Qualidade 
+
+Guia Analise de horas
+Gráfico de area = Mês x Disponibilidade com tooltip: Cartão de disponibilidade, Horas produzidas e Horas paradas
+Grafico de barras empilhadas = Horas paradas por tipo de ocorrencia = Tipo de ocorrencia x horas paradas
+Grafico de rosca = Horas paradas por turno = Turno x horas paradas
+Matriz = Nome do operador x Horas produtivas
+
+Guia Analise de produção
+Gráfico de area = Mês x Produtividade
+Grafico de barras empilhadas = Quantidade produzida por produto = Produto x Quantidade produzida
+Grafico de rosca = Quantidade produzida por turno = Turno x quantidade produzida
+Matriz = Nome do operador x Quantidade produzida
+
+Produção
+Numero Ordem	
+Codigo Operador	
+Ocorrencia	
+Inicio	
+Fim	
+QtdProduzida	
+Qtd Rejeitada
+	1 - Subtração das colunas inicio e fim e depois transformou o resultado Total de Horas (Em duração)
+	2 - Separou a coluna Inicio em duas: Data e hora
+	3 - Separou a coluna fim em duas: Data e hora
+Inclusão da coluna  Codigo do produto
+Inclusao da coluna Pecas Hora = RELATED(CadastroProdutos[Peças Hora])
+Inclusao da coluna Pecas Teoricas = IF('BaseProdução'[Ocorrencia]=BLANK(), 'BaseProdução'[Total Horas]*'BaseProdução'[Pecas Hora], BLANK())
+
+Ordem
+Numero Ordem	
+Emissão	
+Previsão Entrega	
+Codigo Produto	
+Qtd Produzida
+
+Cadastrto de produtos
+Codigo Produto	
+Produto	
+Peças Hora
+
+Cadastro de ocorrencias
+Codigo Ocorrência	
+Tipo Ocorrência
+
+Cadastro de operadores
+Codigo Operador	
+Nome Operador
+
+Inclusão de tabela Hora com 3 colunas: Segundo, Hora e Turno
+1 - Lista de 0 a 86399
+2 - Transforma em tabela
+3 - Altera o tipo para inteiro
+4 - Altera o nome para segundo
+5 - Adicionou uma coluna de duração (#duration(0,0,0,[Segundo]))
+6 - Adicionou uma coluna de hora (#time(Duration.Hours([Duração]),Duration.Minutes([Duração]),Duration.Seconds([Duração])))
+7 - Deixou apenas a coluna de hora e renomeou para segundo
+8 - Adicionou um coluna de hora
+9 - Adicionou uma coluna de turno (Coluna condicional = if [Hora] <= 5 then "Madrugada" else if [Hora] <= 11 then "Manhã" else if [Hora] <= 18 then "Tarde" else "Noite")

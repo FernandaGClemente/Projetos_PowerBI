@@ -1,0 +1,54 @@
+Planilha Base Investimento
+
+Movimentação (Cabeçalho promovido, tipo de dado alterado, colunas em branco removidas, linhas em branco removidas e na coluna Descrição foi retirado as ações que não atualizam mais e na coluna Tipo de Movimentação foi selecionado apenas Compra)
+Data Movimentação	
+Descrição	
+Tipo Movimentação	
+Tipo Ativo	
+Quantidade	
+Preço	 
+Valor 
+incluido a coluna Preço Atual = if('Movimentações(Compras)'[Tipo Ativo]="FIIs",RELATED('Fundos Imobiliários'[Preço]),RELATED('Carteira Ações'[Preço]))
+incluido a coluna Valor atual = 'Movimentações(Compras)'[Quantidade] * 'Movimentações(Compras)'[Preço Atual]
+
+Duplicada a tabela
+Movimentação (Cabeçalho promovido, tipo de dado alterado, colunas em branco removidas, linhas em branco removidas e na coluna Descrição foi retirado as ações que não atualizam mais e na coluna Tipo de Movimentação foi selecionado apenas Provento)
+Data Movimentação	
+Descrição	
+Tipo Movimentação	
+Tipo Ativo	
+Quantidade	
+Preço	 
+Valor 
+
+Carteira de ações (Cabeçalho promovido, exclusão de linha em branco, tipo de dado alterado, o preço da tabela preços ações mesclada, coluna renomeada e linha em branco filtrada)
+ID Ação	
+TICKER
+incluido a coluna preço
+
+Fundos Imobiliários (Cabeçalho promovido, tipo de dado alterado, o preço da tabela preços FIIS mesclada e coluna renomeada)
+ID FII	
+TICKER
+incluido a coluna preço
+
+
+Planilha Google Finance - Importação de ações atualizadas utilizando o google sheets
+
+Preços Ações (Cabeçalho promovido e tipo de dado alterado)
+Ticket Ações	
+Preço Atual
+
+Preços FIIs (Cabeçalho promovido e tipo de dado alterado)
+Ticket FII	
+Preço Atual
+
+
+% Valorização (Cartão de linha multipla) = Medida % Valorização = [Total Investido Atualizado]/[Total Investido]-1
+Total Investido (Cartão de linha multipla) = Medida Total Investido = sum('Movimentações(Compras)'[Valor])
+Total Atualizado (Cartão de linha multipla) = Medida Total Investido Atualizado = sum('Movimentações(Compras)'[Valor atual])
+Total de Proventos (Cartão de linha multipla) = Medida Total Proventos = sum('Movimentações(Proventos)'[Valor])
+Total de proventos por descrição (Grafico de Barra Empilhada) = Descrição x Total Proventos
+Carteira de ações (Matriz) = Ticket x Preço Médio = [Total Investido]/[Total Ativos] x Preço x % Valorização >>> Total Ativos = SUM('Movimentações(Compras)'[Quantidade])
+Fundo Imobiliario (Matriz) = Ticket x Preço Médio = [Total Investido]/[Total Ativos] x Preço x % Valorização >>> Total Ativos = SUM('Movimentações(Compras)'[Quantidade])
+
+
