@@ -1,0 +1,17 @@
+fazer uma coluna offset onde o mês atual é 0, o anterior -1 e o posterior 1, ou seja, mês atual julho = 0, junho = -1 e agosto = 1
+
+utilizar 12 meses ou filtro do ano
+
+Medida:
+filtro ultimos 12 meses = 
+VAR vOffset_contexto = MAX (ColunaOffset)
+VAR vFiltro = IF(vOffset_contexto >= -11 && vOffset_contexto <=0, 1, 0)
+VAR vResultado = IF (ISFILTERED(CalendarioAno), 1, vFiltro)
+RETURN
+vResultado 
+
+No filtro do grafico, informe que só quer mostrar na medida "filtro ultimos 12 meses" quando for 1
+
+Quando não tiver nenhum valor para mostrar em algum mês, mostrar zero.
+MedidaQuantidade = IF (COUNTROWS(Coluna) <> Blanck(), COUNTROWS(Coluna), 0) ou
+MedidaQuantidade = COALESCE(COUNTROWS(Coluna), 0)
