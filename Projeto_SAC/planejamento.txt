@@ -41,12 +41,12 @@ VISUALIZAÇÕES E MEDIDAS QUE SERÃO CRIADAS:
 	VAR vTotalSegundos = INT( ( ( (vTempoTotal - vTotalDias) * 24 - vTotalHoras ) * 60 - vTotalMinutos ) * 60 )
 	RETURN vTotalSegundos & " segundo(s)"
     - Guia ATENDIMENTO - Chamados respondidos e chamados em aberto (Gráfico de Colunas Clustorizados) = Medidas Chamados Abertos = CALCULATE(COUNT(fOcorrencias[Data Chamado]), USERELATIONSHIP(fOcorrencias[Data Chamado], Calendario[Data])), Chamados Respondidos = COUNT(fOcorrencias[Data Resposta])  e Data
-    - Guia ATENDIMENTO - Chamados respondidos por problema (Gráfico de Barras Clustorizados) = Medida Chamados Respondidos = COUNT(fOcorrencias[Data Resposta]) e Problemas com tooltip:
+    - Guia ATENDIMENTO - Chamados respondidos por problema (Gráfico de Barras Clustorizados) = Medida Chamados Respondidos e Problemas com tooltip:
 	a) Sem título (Cartão) = Medida Primeiro Problema 
-	b) Sem título (Gráfico de rosca) = Medida Status x Chamados Respondidos = COUNT(fOcorrencias[Data Resposta]) 
-    - Guia ATENDIMENTO - Chamados respondidos por usuário (Gráfico de Barras Clustorizados) = Medida Chamados Respondidos = COUNT(fOcorrencias[Data Resposta]) e Nome do Usuário
+	b) Sem título (Gráfico de rosca) = Medida Status x Chamados Respondidos 
+    - Guia ATENDIMENTO - Chamados respondidos por usuário (Gráfico de Barras Clustorizados) = Medida Chamados Respondidos e Nome do Usuário
     - Guia ATENDIMENTO - % de chamados atendidos (Gráfico de Rosca) = Medidas % de Respostas = DIVIDE([Chamados Respondidos], [Chamados Abertos]) e % em Aberto = DIVIDE([Chamados Abertos] - [Chamados Respondidos],[Chamados Abertos])
     - Guia ATENDIMENTO - Média de tempo de atendimento (min) (grafico de área) = Medida Média Tempo = AVERAGE(fOcorrencias[Tempo Resposta (s)]) * 24 * 60 e Ano, nome do mês e dia com tooltip:
-	a) Tempo médio de resposta (Cartão) = Medida Média de Duração do Chamado = VAR vTotalMinutos = INT(AVERAGE(fOcorrencias[Tempo Resposta (s)]) * 24 * 60) VAR vTotalSegundos = INT((AVERAGE(fOcorrencias[Tempo Resposta (s)]) * 24 * 60  - vTotalMinutos )* 60) RETURN vTotalMinutos & " min e " & vTotalSegundos & " seg"
-	b) Top 5 problemas do mês x média (Matriz) = Medida Média de Duração do Chamado TOOLTIP = VAR vTotalMinutos = INT(AVERAGE(fOcorrencias[Tempo Resposta (s)]) * 24 * 60) VAR vTotalSegundos = INT((AVERAGE(fOcorrencias[Tempo Resposta (s)]) * 24 * 60  - vTotalMinutos )* 60) RETURN IF(NOT ISBLANK(vTotalMinutos) && NOT ISBLANK(vTotalSegundos),vTotalMinutos & " min e " & FORMAT(vTotalSegundos, "00") & " seg") e Problema
+	a) Tempo médio de resposta (Cartão) = Medida Média de Duração do Chamado 
+	b) Top 5 problemas do mês x média (Matriz) = Medida Média de Duração do Chamado TOOLTIP e Problema
 

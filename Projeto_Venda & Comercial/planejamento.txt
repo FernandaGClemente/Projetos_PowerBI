@@ -1,3 +1,46 @@
+Faturamento ou receita total IIIII
+Receita total e lucro total por mês I
+Receita total e custo total por mês I
+Receita total acumulada e custo total acumulado por mês I
+Custo I
+Lucro III
+% YOY Receita I
+Margem de lucro I
+Analise de crescimento de lucro x ano anterior I
+Quantidade vendida III
+Quantidade vendida por mês I substituida por Faturamento e quantidade vendida por mes II
+Quantidade devolvida I
+% de quantidade devolvida I
+Quantidade de clientes ou Clientes atendidos II
+
+Produtos- Ticket médio (Cartão) ok (Superior a esquerda)
+Produtos- Produto mais vendido (Cartão) ok (Superior a esquerda)
+Produtos- Top 1 - Vendedor e o total vendido (Imagem) Ok (inferior a direita
+Produtos- Faturamento por nome do vendedor  (Matriz) OK (inferior a centralizado)
+Produtos- Quantidade vendida por forma de pagamento (Rosca) ok (inferior a direita)
+Produtos- Venda por marca (Grafico de barras) ok (inferior a esquerda)
+Produtos- Imagem por categoria (Imagem) OK (Superior a centralizado)
+Produtos - Hierarquia
+
+Faturamento por continente II
+Faturamento por país I
+Indicadores gerais por continente - Quantidade compra, receita, lucro, %YOY Receita, %YOY lucro I
+Quantidade de venda por faixa etaria I
+Compras por subcategoria I
+
+Simulação - Imagem por categoria 
+Simulação - Nova receita
+Simulação - lucro extra
+Simulação - previsão de receita por mes
+Simulação - aumentar o preço unitario
+Simulação por tabela ou mapa por receita, nova receita e lucro extra
+
+
+
+
+
+
+
 
 Guia Relatorio de Vendas:
 	Faturamento total = SUM(Vendas[Faturamento]) - Cartão de linha multipla
